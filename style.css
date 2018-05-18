@@ -1,0 +1,23 @@
+*{
+   font-family: 'Arial', sans-serif;
+}
+
+#drop{
+   width: 100%;
+   padding: 60px 0;
+   margin: 0 auto;
+   text-align: center;
+   color: #eee;
+   border: 2px dashed #eee;
+}
+#drop-label{
+   color: #111;
+   font-size: 1.2em;
+   text-align: center;
+   padding: 40px 0;
+   display: block;
+}
+#drop.fileHover{
+   border-color: #1DE9B6;
+   color: #1DE9B6;
+}

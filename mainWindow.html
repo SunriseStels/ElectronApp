@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script>window.$ = window.jQuery = require('./jquery-3.3.1.min.js')</script>
+   </head>
+   <body>
+      <div id="drop" for="fileInput" id="fileLabel" ondragover="overrideDefault(event);fileHover();" ondragenter="overrideDefault(event);fileHover();" ondragleave="overrideDefault(event);fileHoverEnd();" ondrop="overrideDefault(event);fileHoverEnd();addFiles(event);">
+         drop some file right here.
+      </div>
+      <span id="drop-label" ondro>File title here...</span>
+   </body>
+   <script type="text/javascript">
+      var dropFileForm = document.getElementById("drop");
+      var fileLabelText = document.getElementById("drop-label");
+      var droppedFiles;
+
+      function overrideDefault(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      }
+
+      function fileHover() {
+      dropFileForm.classList.add("fileHover");
+      }
+
+      function fileHoverEnd() {
+      dropFileForm.classList.remove("fileHover");
+      }
+
+      function addFiles(event) {
+      droppedFiles = event.dataTransfer.files;
+      showFiles(droppedFiles);
+      }
+
+      function showFiles(files) {
+      if (files.length > 1) {
+         fileLabelText.innerText = files.length + " files selected";
+      } else {
+         fileLabelText.innerText = files[0].name;
+      }
+      }
+   </script>
+</html>
